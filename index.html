@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Album</title>
+    <!--This project should only use CSS (not javascript, nor anything else)
+    There should also be 2 blend modes, 2 gradients, and 2 filter modes-->
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+            background-image: linear-gradient(rgb(88, 88, 88), rgb(31, 31, 31));
+        }
+        .heading{
+            height: 10vh;
+            width: 100vw;
+            font-size: 24px;
+            letter-spacing: 5px;
+            text-align: center;
+            padding: 10px 0 30px 0;
+            color: white;
+            background: url("images/heading.png");
+        }
+        #titleprint, #subtitleprint{
+            position: absolute;
+            width: 100vw;
+            text-align: center;
+        }
+        #titleprint{
+            padding: 0 0 ;
+        }
+        #subtitleprint{
+            padding-top: 4vh;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 2vh;
+            width: 100vw;
+            padding-bottom: 3vh;
+        }
+        .sideleft{
+            margin: 0 2vw 0 2vw;
+            background-image: linear-gradient(rgb(145,114,96,255), rgb(131,101,84,255));
+            filter: opacity(75%);
+        }
+        .outer1{
+            display: flex;
+            justify-content: center;
+            color: rgb(105, 84, 50);
+            position: relative;
+            width: 27vw; 
+            height: 100%;
+            margin: 0 3vw 0 2vw;
+            color: white;
+        }
+        .inner1{
+            height: 80vh;
+            width: 25vw;
+            overflow: hidden;
+            display: inline-block;
+            position: relative;
+            font-size: 15px;
+            font-family: Garamond, serif;
+        }
+        .outer2{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 56vw;   
+        }
+        .middle{
+            margin-top: 2.5vh;
+        }
+        .inner2{
+            height: 200px;
+            width: 200px;
+            overflow: hidden;
+            display: inline-block;
+            color: white;
+            position: relative;
+            margin-bottom: 15px;
+            margin-right: 15px;
+        }
+        .image{
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            box-sizing: border-box;
+            overflow: hidden;
+            color: white;
+            position: relative;
+            transition: transform 3s;
+            border-style: ridge;
+        }   
+        #image1{
+            filter: drop-shadow(8px 8px 10px white);
+        }
+        .overlay{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgb(246,242,239,255);
+            width: 100%;
+            height: 100%;
+            transform: scale(0);
+            transition: 1.5s ease;
+            opacity: 1.0;
+        }
+        .text {
+            color :black;
+            font-size: 14px;
+            font-weight: 300;
+            position: absolute;
+            top: 10%;
+            left: 5%; 
+            right: 5%;
+            transform: translate(0px, 0px); 
+            text-align: center;
+            text-shadow: 0.5px 0.5px 1px black;
+        }
+        .inner2:hover .overlay {
+            transform: scale(1);
+        }
+        .inner2:hover .image {
+            transform: scale(1.2);
+        }
+        .inner2:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <header>
+            <p id="subtitleprint">Breakfast</p>
+            <p id="titleprint">Glorious Food</p>   
+        </header>
+    </div>
+    <div class="container">
+        <div class="sideleft">
+            <div class="outer1">
+                <div class="inner1">
+                    <p>Eating breakfast began in the Neolithic (late Stone Age) era, when large stones were used to grind grains to make a sort of porridge. Porridge was also a staple of Roman Soldiers' diets - they called it pulmentus.<br><br>Breakfast as we know it began in the early 19th century, when some middle-class men started to work regular hours in offices - prior to that people would often work for a few hours, then eat a meal at about 10am. Wives or kitchen staff would often serve these 19th century commuters a two-course meal that would often begin with a bowl of porridge. This would be followed by a full English breakfast: toast and eggs with bacon or fish. This style of meal wasn't referred to as the 'full English' until the First World War when lighter breakfasts grew in popularity.<br><br>Eating breakfast had become a more elaborate act by the 19th century, at least in well-off households. In the 1861 Book of Household Management, Isabella Beeton suggested a daily breakfast buffet that included a cold joint of meat, game pies, broiled mackerel, sausages, bacon and eggs, muffins, toast, marmalade, butter, jam, coffee and tea.<br><br>Towards the end of the 1800s, there was a backlash against these kinds of lavish diets. Groups like the 7th Day Adventists protested that meat-based breakfasts were leading to ill health! Over the next few decades, pioneers like John Kellogg, W.K. Kellogg, Henry Perky and C.W. Post developed ready to eat breakfast cereals that would go on to become extremely popular and varied. At the turn of the 20th century, other cereals, such as muesli were being invented in Europe. Breakfast cereals found success when rationing made bacon and eggs scarce during the war. Also, as women entered the workforce, they no longer had the time to cook a full meal in the morning and cereals allowed children to prepare their own breakfast.<br><br>The range of breakfast foods on offer became more and more varied. Now, however, despite the choice available, fewer and fewer people take the time to have breakfast.</p>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="outer2">
+                <div class="inner2">
+                    <img src="images/breakfastimage1.1.jpg" alt="breakfast" class="image" id="image1">
+                    <div class="overlay">
+                        <div class="text">French toast, known as pain perdu ("lost bread") in France, is a breakfast and brunch dish made with old bread slices that are soaked in a milk and egg mixture and fried until golden brown and crispy.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.2.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Pancake, a pancake (or hot-cake, griddlecake, or flapjack) is a flat cake, often thin and round, prepared from a starch-based batter that may contain eggs, milk and butter and cooked on a hot surface such as a griddle or frying pan, often frying with oil or butter. It is a type of batter bread.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.3.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Coffee, a popular beverage brewed from ground coffee beans and water. It can be served hot or cold and comes in many flavors, depending on the type of coffee bean, the method of roasting the beans, and the flavorings that may be added.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.4.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Lox bagel, a lox bagel is a type of food, typically eaten for breakfast, that includes both lox and a bagel. Lox is salmon that has been prepared through a combination of curing and smoking. A bagel is a ring-shaped piece of bread that is meant to be eaten in a single serving.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.5.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Beignet, a beignet is traditionally a deep-fried choux pastry topped with an ample amount of powdered sugar, though yeast pastries can be used.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.6.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Oatmeal, oatmeal is a preparation of oats that have been de-husked, steamed, and flattened, or a coarse flour of hulled oat grains (groats) that have either been milled (ground) or steel-cut. Ground oats are also called white oats.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.7.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Scrambled eggs, scrambling is a method of cooking an egg in a sauté pan in which the white and the yolk are blended together. It is, perhaps, the easiest method for cooking eggs and one of the most popular.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.8.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Eggs benedict, a brunch staple consisting of poached eggs and Canadian bacon or sliced ham on an English muffin, topped with hollandaise sauce (a rich and creamy concoction made with egg yolks, butter, lemon juice or vinegar, and various seasonings).</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.9.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Waffles, a waffle is a dish made from leavened batter or dough that is cooked between two plates that are patterned to give a characteristic size, shape, and surface impression. There are many variations based on the type of waffle iron and recipe used.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.10.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Biscuits and Gravy, the dish consists of soft dough biscuits covered in either white gravy (sawmill gravy) or brown gravy (meat gravy), made from the drippings of cooked pork sausage, flour, milk, and often (but not always) bits of sausage, bacon, ground beef, or other meat.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.11.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Avocado toast, avocado toast is an open-face sandwich made with toasted bread topped with smashed (or sliced) avocado and (typically) fresh lemon juice, olive oil, and simple seasonings like salt and black pepper.</div>
+                    </div>
+                </div>
+                <div class="inner2">
+                    <img src="images/breakfastimage1.12.jpg" alt="breakfast" class="image">
+                    <div class="overlay">
+                        <div class="text">Crepe, also spelled crêpe, is a French pancake made of a thin batter containing flour, eggs, melted butter, salt, milk, water, and, if the crepes are to be served with a sweet sauce or garnish, sugar. Crepes can be filled with a variety of sweet or savoury mixtures.</div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div> 
+
+    <!-- 
+    <div class="container">
+        <img src="images/breakfastimage1.1.jpg" alt="breakfast" class="image">
+        <div class="overlay">
+            <div class="text">Hello World</div>
+        </div>
+    </div> 
+    -->
+
+</body>
+</html>
